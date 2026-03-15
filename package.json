@@ -1,0 +1,10 @@
+{
+  "name": "health-lang-graph-rag",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev:backend": "cd backend; .venv/bin/python -m app.main",
+    "dev:frontend": "cd frontend; npm run dev",
+    "dev": "npm run dev:backend & npm run dev:frontend"
+  }
+}

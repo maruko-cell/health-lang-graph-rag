@@ -1,0 +1,39 @@
+/**
+ * 带图片的消息内容组件样式：内联图片缩略图与文本统一展示。
+ */
+
+.message-content-with-images {
+  display: inline;
+  white-space: pre-wrap;
+  word-break: break-word;
+
+  &__text {
+    display: inline;
+  }
+
+  &__inline-image-wrapper {
+    display: inline-block;
+    margin: var(--space-1) var(--space-2) var(--space-1) 0;
+    vertical-align: middle;
+    cursor: zoom-in;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    max-width: 100%;
+    outline: none;
+
+    &:focus-visible {
+      box-shadow: 0 0 0 2px var(--primary);
+    }
+  }
+
+  &__inline-image {
+    display: block;
+    max-width: 200px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: var(--radius-md);
+    vertical-align: middle;
+  }
+}

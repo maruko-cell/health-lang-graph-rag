@@ -1,0 +1,135 @@
+{
+  "user_id": "user_20260313_001",
+  "date": "2026-03-13",
+  "device": "智能手环",
+  "daily_summary": {
+    "total_steps": 8762,
+    "total_calories": 328.5,
+    "total_exercise_minutes": 47,
+    "exercise_types": [
+      "步行",
+      "慢跑",
+      "拉伸"
+    ]
+  },
+  "heart_rate": {
+    "resting_heart_rate": 68,
+    "average_heart_rate": 82,
+    "max_heart_rate": 136,
+    "min_heart_rate": 62,
+    "heart_rate_records": [
+      {
+        "time": "08:00",
+        "value": 72
+      },
+      {
+        "time": "09:00",
+        "value": 78
+      },
+      {
+        "time": "10:00",
+        "value": 86
+      },
+      {
+        "time": "12:00",
+        "value": 94
+      },
+      {
+        "time": "14:00",
+        "value": 80
+      },
+      {
+        "time": "16:00",
+        "value": 88
+      },
+      {
+        "time": "18:00",
+        "value": 126
+      },
+      {
+        "time": "20:00",
+        "value": 90
+      },
+      {
+        "time": "22:00",
+        "value": 70
+      }
+    ]
+  },
+  "step_records": [
+    {
+      "hour": "08:00-09:00",
+      "steps": 1205
+    },
+    {
+      "hour": "09:00-10:00",
+      "steps": 968
+    },
+    {
+      "hour": "10:00-11:00",
+      "steps": 842
+    },
+    {
+      "hour": "11:00-12:00",
+      "steps": 675
+    },
+    {
+      "hour": "12:00-13:00",
+      "steps": 1120
+    },
+    {
+      "hour": "13:00-14:00",
+      "steps": 430
+    },
+    {
+      "hour": "14:00-15:00",
+      "steps": 516
+    },
+    {
+      "hour": "15:00-16:00",
+      "steps": 628
+    },
+    {
+      "hour": "16:00-17:00",
+      "steps": 783
+    },
+    {
+      "hour": "17:00-18:00",
+      "steps": 956
+    },
+    {
+      "hour": "18:00-19:00",
+      "steps": 452
+    },
+    {
+      "hour": "19:00-20:00",
+      "steps": 187
+    }
+  ],
+  "exercise_records": [
+    {
+      "type": "步行",
+      "start_time": "08:10",
+      "end_time": "08:45",
+      "duration_minutes": 35,
+      "calories": 126.3,
+      "steps": 3210
+    },
+    {
+      "type": "慢跑",
+      "start_time": "18:20",
+      "end_time": "18:42",
+      "duration_minutes": 22,
+      "calories": 168.7,
+      "avg_heart_rate": 124
+    },
+    {
+      "type": "拉伸",
+      "start_time": "19:00",
+      "end_time": "19:10",
+      "duration_minutes": 10,
+      "calories": 33.5
+    }
+  ],
+  "status": "normal"
+}

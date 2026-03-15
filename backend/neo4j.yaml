@@ -1,0 +1,72 @@
+# Neo4j 医疗知识图谱配置（单独 YAML，供后端加载）
+# 可通过环境变量 NEO4J_CONFIG_PATH 指定本文件路径；未设置时默认使用 backend/config/neo4j.yaml
+database:
+  neo4j:
+    url: bolt://localhost:7687
+    database: neo4j
+    username: neo4j
+    # 密码建议通过环境变量 NEO4J_PASSWORD 覆盖，避免写入版本库
+    password: ""
+    # 节点上用于检索的名称属性，与图数据中节点属性一致
+    search-key: "名称"
+    # 图数据库中存在的节点标签，用于检索时限定 MATCH 范围
+    node-label:
+      - "一级科室"
+      - "二级科室"
+      - "其他"
+      - "检查手段"
+      - "治疗方案"
+      - "生产商"
+      - "疾病"
+      - "症状"
+      - "药物"
+      - "食物"
+      - "食谱"
+    # 图数据库中存在的关系类型，用于检索时只扩展白名单关系
+    relationship-type:
+      - "好评药物"
+      - "宜吃"
+      - "属于"
+      - "常用药物"
+      - "并发症"
+      - "忌吃"
+      - "所属科室"
+      - "推荐食谱"
+      - "治疗方法"
+      - "生产药品"
+      - "症状"
+      - "诊断建议"
+    # 意图 → 节点标签/关系类型映射，拼 Cypher 时与 node-label/relationship-type 白名单取交集
+    intent-templates:
+      disease_diet:
+        start-label: ["疾病"]
+        relationship-type: ["宜吃", "忌吃"]
+        end-label: ["食物"]
+        entity-type: "疾病"
+        param-key: "disease"
+        dynamic-rels: true
+      disease_drug:
+        start-label: ["疾病"]
+        relationship-type: ["常用药物", "好评药物"]
+        end-label: ["药物"]
+        entity-type: "疾病"
+        param-key: "disease"
+      disease_check:
+        start-label: ["疾病"]
+        relationship-type: ["治疗方法", "症状", "诊断建议", "属于"]
+        end-label: ["检查手段", "治疗方案", "其他"]
+        entity-type: "疾病"
+        param-key: "disease"
+        end-multi-label: true
+      disease_symptom:
+        start-label: ["疾病"]
+        relationship-type: ["症状"]
+        end-label: ["症状"]
+        entity-type: "疾病"
+        param-key: "disease"
+      symptom_disease:
+        start-label: ["症状"]
+        relationship-type: ["症状"]
+        end-label: ["疾病"]
+        entity-type: "症状"
+        param-key: "symptom"

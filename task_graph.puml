@@ -1,0 +1,31 @@
+@startuml task_graph
+title 健康 LangGraph 总图运行结构
+
+start
+:query_rewrite
+(查询重写);
+
+:路由 _router_super;
+
+if (route?) then (rag)
+  :rag_subgraph;
+elseif (route?) then (multi_moda)
+  :multi_moda_subgraph;
+elseif (route?) then (diet)
+  :diet_subgraph;
+elseif (route?) then (exercise)
+  :exercise_subgraph;
+elseif (route?) then (amap)
+  :surround_amap_maps_mcp_subgraph;
+elseif (route?) then (selfie)
+  :selfie_subgraph;
+else (default)
+  :default_handler_subgraph;
+endif
+
+:summary_subgraph
+(汇总 final_reply);
+
+stop
+
+@enduml

@@ -1,0 +1,47 @@
+{
+  "agentList": [
+    {
+      "name": "RAG",
+      "description": "rag agent",
+      "icon": "🔍",
+      "type": "rag",
+      "message": "高血糖症状有哪些？"
+    },
+    {
+      "name": "Multi",
+      "description": "multi-moda agent",
+      "icon": "🎨",
+      "type": "multi-moda",
+      "message": "帮我看一下这张病例图片",
+      "guidance": "请上传病例图片："
+    },
+    {
+      "name": "Diet",
+      "description": "diet agent",
+      "icon": "🍎",
+      "type": "diet",
+      "message": "我最近吃太多油腻食物，需要清淡饮食，请给我一些做一个饮食计划"
+    },
+    {
+      "name": "Data",
+      "description": "data agent",
+      "icon": "💾",
+      "type": "data",
+      "message": "我最近运动太少，需要增加运动量，请给我一些建议"
+    },
+    {
+      "name": "MCP",
+      "description": "mcp agent",
+      "icon": "🏥",
+      "type": "exercise",
+      "message": "西湖附近有什么医院？"
+    },
+    {
+      "name": "Self",
+      "description": "selfie agent",
+      "icon": "🤳",
+      "type": "selfie",
+      "message": "帮我画一张自画像"
+    }
+  ]
+}

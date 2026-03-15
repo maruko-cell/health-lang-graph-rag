@@ -1,0 +1,127 @@
+/** 全局样式：设计令牌、重置与基础布局（4px 间距基准、oklch 色、轻量阴影） */
+
+:root {
+  /* 语义色（oklch，健康/温和主题，避免通用蓝 #007bff） */
+  --background: oklch(0.985 0.002 247);
+  --foreground: oklch(0.21 0.02 260);
+  --primary: oklch(0.55 0.12 175);
+  --primary-hover: oklch(0.48 0.13 175);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.96 0.01 175);
+  --muted: oklch(0.96 0.005 260);
+  --muted-foreground: oklch(0.5 0.02 260);
+  --border: oklch(0.91 0.01 260);
+  --border-focus: oklch(0.55 0.12 175);
+  /* 间距基准 4px (0.25rem) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  /* 底部安全区：聊天输入区高度（约 72px）+ 16px 间距，供悬浮元素避免与输入区重叠 */
+  --bottom-safe-area: 88px;
+  /* 圆角：现代 0.5rem–1rem */
+  --radius: 0.625rem;
+  --radius-lg: 0.75rem;
+  --radius-full: 9999px;
+  /* 阴影：轻微、1–2 层 */
+  --shadow-sm: 0 1px 2px oklch(0.2 0.02 260 / 0.06);
+  --shadow-md: 0 4px 12px oklch(0.2 0.02 260 / 0.08);
+  --shadow-lg: 0 12px 28px oklch(0.2 0.02 260 / 0.12);
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  /* 动效：150–400ms ease-out */
+  --duration-fast: 150ms;
+  --duration-normal: 200ms;
+  --duration-slow: 350ms;
+  --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+  /* 底部安全区：用于聊天输入区与悬浮气泡避让（默认 24px，可被 JS 动态覆盖） */
+  --bottom-safe-area: 54px;
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--foreground);
+  background-color: var(--background);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 深色模式（Vercel/Linear 风格） */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: oklch(0.145 0.01 260);
+    --foreground: oklch(0.97 0.005 260);
+    --primary: oklch(0.55 0.12 175);
+    --primary-hover: oklch(0.62 0.11 175);
+    --primary-foreground: oklch(0.99 0 0);
+    --secondary: oklch(0.22 0.01 260);
+    --muted: oklch(0.22 0.008 260);
+    --muted-foreground: oklch(0.65 0.02 260);
+    --border: oklch(0.35 0.01 260);
+    --border-focus: oklch(0.6 0.12 175);
+    --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.2);
+    --shadow-md: 0 4px 12px oklch(0 0 0 / 0.25);
+    --shadow-lg: 0 12px 28px oklch(0 0 0 / 0.35);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: var(--background);
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background: linear-gradient(180deg, oklch(0.97 0.015 175) 0%, var(--background) 35%, oklch(0.965 0.01 260) 100%);
+  }
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 焦点样式，便于键盘与无障碍；使用 box-shadow 实现圆角高亮（outline 不随 border-radius）
+ * 仅对非 button 的焦点元素使用，按钮点击后不保留焦点高亮，仅在按下时通过 :active 高亮
+ */
+button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+button:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+/* 移除移动端默认的方形点击高亮，避免覆盖按钮圆角 */
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+input:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--border-focus);
+  border-radius: var(--radius);
+}

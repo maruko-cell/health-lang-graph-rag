@@ -1,0 +1,52 @@
+/**
+ * 知识库向量化进度气泡内容样式。
+ *
+ * 功能描述：
+ * 为 FileUploadBubble 的 body 区域提供与知识库上传场景匹配的「文件名 + 进度条」排版与尺寸，
+ * 保持紧凑、清晰，并在窄屏下正常截断文件名。
+ */
+
+/** 气泡内覆盖 antd 的 primary 为应用主题绿，使进度条等组件使用绿色 */
+.kb-vectorize-bubble {
+  --ant-color-primary: var(--primary);
+  --ant-color-primary-hover: var(--primary-hover);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: 100%;
+
+  &__filename {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--foreground);
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* 让 antd 进度条在气泡里更紧凑，并使用主题绿色 */
+  .ant-progress {
+    margin: 0;
+  }
+
+  /* 线性进度条：进度条主体与成功段使用主题 primary 绿，覆盖 antd 默认蓝色 */
+  .ant-progress-bg,
+  .ant-progress-success-bg,
+  .ant-progress-inner .ant-progress-bg {
+    background-image: none !important;
+    background: var(--primary) !important;
+    background-color: var(--primary) !important;
+  }
+
+  /* 圆形进度条兜底：进度路径使用主题 primary 绿（目前主要使用线性样式） */
+  .ant-progress-circle-path {
+    stroke: var(--primary) !important;
+  }
+
+  .ant-progress-text {
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+  }
+}
+
