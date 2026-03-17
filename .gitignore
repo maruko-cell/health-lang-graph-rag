@@ -35,3 +35,6 @@ frontend/dist/
 # 系统与日志
 .DS_Store
 *.log
+
+# 文档（中文本地版，不提交）
+README.zh-CN.md
